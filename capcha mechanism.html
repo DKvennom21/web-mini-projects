@@ -1,0 +1,48 @@
+<html>
+<head><title>question 14: captcha </title></head>
+<body onload="Captcha()">
+    <style>
+        body {
+  background-color: lightblue;
+  padding-top: center;
+}
+div {
+  padding: 25px 50px 75px 100px;
+  font-size: larger;
+  
+}
+ </style>
+ 
+<script>
+var captcha;
+ 
+function Captcha() {
+    var a = Math.floor((Math.random() * 5));
+    var b = Math.floor((Math.random() * 5));
+    var c = Math.floor((Math.random() * 5));
+    var d = Math.floor((Math.random() * 5));
+ 
+captcha=a.toString()+b.toString()+c.toString()+d.toString();
+    document.getElementById("captcha").value = captcha;
+}
+ 
+function check(){
+var input=document.getElementById("inputText").value;
+ 
+if(input==captcha){
+alert("Equal");
+}
+else{
+alert("Not Equal");
+}
+}
+</script>
+ <div>
+    <input type="text" id="captcha" disabled/><br/><br/>
+    <input type="text" id="inputText"/><br/><br/>
+    <button onclick="Captcha()">Refresh</button>
+    <button onclick="check()">Submit</button>
+ </div>
+ 
+</body>
+</html>
